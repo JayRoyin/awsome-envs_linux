@@ -26,7 +26,7 @@ f74/home/qstdc/env_config/
 
 ## 主要文档分类
 
-### 🐍 Python环境配置
+### 🐍 conda 安装以及环境配置
 - **[conda_config.md](conda_config.md)** - Conda环境管理和配置说明
 
 ### 🎮 NVIDIA相关配置
