@@ -2,6 +2,7 @@ GitHub Ubuntu 上传文件指南：从本地到远程仓库的简易步骤解析
 ===
 
 本文将详细介绍在Ubuntu操作系统上如何使用GitHub上传文件，涵盖从本地仓库到远程仓库的完整流程。我们将使用Git命令行工具，逐步指导您完成每一步操作。
+## 首次创建
 
 **前提条件**
 - **Ubuntu操作系统：** 确保您的机器上安装了Ubuntu。
@@ -105,3 +106,102 @@ git remote add origin git@github.com:yourusername/your-repository.git
 git push -u origin master
 ```
 如果您的分支名不是`master`，请替换为您的分支名。
+
+
+很好！现在你已经成功推送了。下次在本地更新或增添文件时，按照以下步骤更新到 GitHub：
+***
+## 基本工作流程
+
+### 1. 添加新文件或修改文件后
+```bash
+# 查看当前状态（可选）
+git status
+
+# 添加所有更改到暂存区
+git add .
+
+# 或者添加特定文件
+git add 文件名
+```
+
+### 2. 提交更改
+```bash
+# 提交到本地仓库
+git commit -m "描述你的修改内容"
+```
+
+### 3. 推送到 GitHub
+```bash
+# 推送到远程仓库
+git push origin master
+
+# 或者如果已经设置过上游分支，简写为：
+git push
+```
+
+## 完整示例
+
+**情况1：添加新文件**
+```bash
+# 创建新文件后
+git add .
+git commit -m "添加新配置文件"
+git push origin master
+```
+
+**情况2：修改现有文件**
+```bash
+# 修改文件后
+git add .
+git commit -m "更新文档内容"
+git push origin master
+```
+
+**情况3：删除文件**
+```bash
+# 删除文件后
+git add .
+git commit -m "删除无用文件"
+git push origin master
+```
+
+## 实用技巧
+
+### 查看状态（推荐每次操作前使用）
+```bash
+git status
+```
+
+### 查看提交历史
+```bash
+git log --oneline
+```
+
+### 如果又遇到冲突（别人也修改了同一文件）
+```bash
+# 先拉取最新代码
+git pull origin master
+
+# 解决冲突后
+git add .
+git commit -m "解决合并冲突"
+git push origin master
+```
+
+## 简化设置（一次性配置）
+```bash
+# 设置上游分支，以后可以直接用 git push
+git push -u origin master
+
+# 设置默认推送分支
+git config --global push.default simple
+```
+
+设置好后，以后的工作流程就简化为：
+```bash
+git add .
+git commit -m "描述修改"
+git push
+```
+
+记住这个三部曲：**add → commit → push** 就可以了！
