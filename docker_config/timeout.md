@@ -8,7 +8,10 @@ Docker运行hello-world镜像失败或超时，报错：
 `/usr/bin/docker-current: missing signature key.`
 `See ‘/usr/bin/docker-current run --help’.`
 例如下面所示
-![示例图片](docker_timeout.png "示例图片")
+
+<p align="center">
+  <img width="851" height="112" src="docker_timeout.png" hspace="10">
+</p>
 
 在安装 Docker 并尝试运行 hello-world 时，遇到连接超时的问题，这通常是因为默认的 Docker 镜像源访问速度较慢或不稳定所导致的。为了加速 Docker 镜像的下载和提升稳定性，解决这个问题的一种有效方法就是更换镜像源。
 
@@ -86,9 +89,10 @@ Nov 26 09:38:31 unitree systemd[1]: Failed to start Docker Application Container
 ```bash
 docker info
 ```
-看到：
-
-![示例图片](docker_timeout_info_1.png "示例图片")
+输出如下：
+<p align="center">
+  <img width="691" height="1164" src="docker_timeout_info_1.png" hspace="10">
+</p>
 
 其中
 ```bash
@@ -108,7 +112,10 @@ Registry Mirrors:
 docker run hello-world
 ```
 运行成功如下图所示
-![示例图片](docker_timeout_helloworld.png "示例图片")
+
+<p align="center">
+  <img width="731" height="516" src="docker_timeout_helloworld.png" hspace="10">
+</p>
 
 此时我们也可以查看是否成功拉取hello-world镜像：
 ```bash
