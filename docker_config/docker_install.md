@@ -1,5 +1,13 @@
 在 Ubuntu 上安装 Docker Engine
 ===
+- [在 Ubuntu 上安装 Docker Engine](#在-ubuntu-上安装-docker-engine)
+  - [操作系统要求](#操作系统要求)
+  - [卸载旧版本](#卸载旧版本)
+  - [使用 `apt` 软件源进行安装](#使用-apt-软件源进行安装)
+    - [1. 设置 Docker 的 apt 软件仓库。](#1-设置-docker-的-apt-软件仓库)
+    - [2. 安装 Docker 软件包。](#2-安装-docker-软件包)
+    - [3.运行 `hello-world` 镜像来验证安装是否成功：](#3运行-hello-world-镜像来验证安装是否成功)
+  - [卸载 Docker Engine](#卸载-docker-engine)
 
 ## 操作系统要求
 要安装 Docker Engine，您需要以下 Ubuntu 版本之一的 64 位版本：

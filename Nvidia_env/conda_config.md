@@ -2,7 +2,18 @@ conda 安装以及环境配置
 ===
 >更多conda操作指南 [**用户指南**](https://docs.conda.org.cn/projects/conda/en/stable/user-guide/index.html "最好的用户指南")
 
-[TOC]
+- [conda 安装以及环境配置](#conda-安装以及环境配置)
+  - [conda 环境](#conda-环境)
+    - [1. 确保 Conda 已安装](#1-确保-conda-已安装)
+    - [2. 添加 Conda 到系统路径](#2-添加-conda-到系统路径)
+    - [3. 重启终端并测试 Conda](#3-重启终端并测试-conda)
+  - [cuda使用教程](#cuda使用教程)
+    - [简单创建环境](#简单创建环境)
+    - [使用命令创建特定的环境](#使用命令创建特定的环境)
+    - [修改默认配置](#修改默认配置)
+  - [FQA](#fqa)
+    - [1. 激活conda环境报错](#1-激活conda环境报错)
+    - [2. libstdc++.so.6版本升级与链接修复](#2-libstdcso6版本升级与链接修复)
 
 ## conda 环境
 ### 1. 确保 Conda 已安装
