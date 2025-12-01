@@ -36,7 +36,9 @@ Unity Hub 支持以下操作系统：
 ## 安装旧版本的 Unity Hub
 
 如果出于兼容性原因需要使用旧版本的 Hub，您可以为您的平台下载以下版本之一：
+
 **Unity Hub 3.14.4**(Ubuntu 版本 24.04)
+
   [RPM 软件包](https://public-cdn.cloud.unity3d.com/hub/3.14.4/unityhub-x86_64-3.14.4.rpm)
   [DEB 软件包](https://public-cdn.cloud.unity3d.com/hub/3.14.4/unityhub-amd64-3.14.4.deb)
 
