@@ -1,5 +1,5 @@
-# 环境GCC/G++
-
+环境GCC/G++
+===
 ## GCC版本切换
 使用update-alternatives 进行版本切换
 `

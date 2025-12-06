@@ -1,7 +1,7 @@
 conda 安装以及环境配置
 ===
 >更多conda操作指南 [**用户指南**](https://docs.conda.org.cn/projects/conda/en/stable/user-guide/index.html "最好的用户指南")
-
+---
 - [conda 安装以及环境配置](#conda-安装以及环境配置)
   - [conda 环境](#conda-环境)
     - [1. 确保 Conda 已安装](#1-确保-conda-已安装)
@@ -11,10 +11,14 @@ conda 安装以及环境配置
     - [简单创建环境](#简单创建环境)
     - [使用命令创建特定的环境](#使用命令创建特定的环境)
     - [修改默认配置](#修改默认配置)
+  - [conda进阶](#conda进阶)
+    - [导出 `environment.yml` 文件 (推荐)](#导出-environmentyml-文件-推荐)
+    - [导出 `requirements.txt` 文件 (适用于 Python Pip 部署)](#导出-requirementstxt-文件-适用于-python-pip-部署)
   - [FQA](#fqa)
     - [1. 激活conda环境报错](#1-激活conda环境报错)
     - [2. libstdc++.so.6版本升级与链接修复](#2-libstdcso6版本升级与链接修复)
 
+---
 ## conda 环境
 ### 1. 确保 Conda 已安装
 
@@ -129,6 +133,67 @@ conda config --set auto_activate_base false	# 默认不进入base环境
 conda config --set auto_activate_base true	# 默认进入base环境
 ```
 
+## conda进阶
+### 导出 `environment.yml` 文件 (推荐)
+
+这是 Conda **推荐**的方式，因为它不仅记录了 Python 包，还记录了环境名称、Conda 通道（channels）信息，以及非 Python 的依赖项（如 C/C++ 库）。
+
+**导出命令：**
+
+1.  **激活环境：**
+
+    ```bash
+    conda activate your_env_name
+    ```
+
+2.  **导出依赖：**
+
+    ```bash
+    conda env export > environment.yml
+    ```
+
+>执行后，在当前目录下会生成一个 `environment.yml` 文件。
+
+
+**如何使用：**
+
+  * **部署时：** 在新的机器上，可以直接使用这个文件创建完全相同的 Conda 环境：
+    ```bash
+    conda env create -f environment.yml
+    ```
+
+### 导出 `requirements.txt` 文件 (适用于 Python Pip 部署)
+
+如果您希望使用标准的 **Pip** 格式来部署您的 Python 依赖（例如，在 Docker 镜像或传统的虚拟环境中），可以使用这个方法。它只包含 Python 包及其版本。
+
+**导出命令：**
+
+这个命令需要先激活您的 Conda 环境，然后使用 `pip freeze`：
+
+1.  **激活环境：**
+
+    ```bash
+    conda activate your_env_name
+    ```
+
+2.  **导出依赖：**
+
+    ```bash
+    pip freeze > requirements.txt
+    ```
+
+>执行后，在当前目录下会生成一个 `requirements.txt` 文件。
+
+**如何使用：**
+
+  * **部署时：** 在新的环境中，激活环境后使用 `pip` 安装：
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+-----
+
+
 ## FQA
 ### 1. 激活conda环境报错
 在sh脚本中，使用`conda activate <env>`时出错：  
@@ -137,8 +202,8 @@ conda config --set auto_activate_base true	# 默认进入base环境
 在conda activate前加入：
 ```bash
 source ~/anaconda3/etc/profile.d/conda.sh
-## 或者添加到bashrc文件中
 ```
+>或者添加到bashrc文件中
 ### 2. libstdc++.so.6版本升级与链接修复
 在使用conda环境的时候可能会出现系统原有的 ``libstdc++.so.6 版本（6.0.28）``不支持所需的` GLIBCXX `符号，导致某些应用程序无法正常运行。需要升级到更高版本（6.0.34）以支持更多的 C++ 标准库特性。
 具体修复请查看[libstdc++.so.6版本升级](libstdc.md)文档
