@@ -17,6 +17,7 @@ conda 安装以及环境配置
   - [FQA](#fqa)
     - [1. 激活conda环境报错](#1-激活conda环境报错)
     - [2. libstdc++.so.6版本升级与链接修复](#2-libstdcso6版本升级与链接修复)
+  - [**返回主目录**](#返回主目录)
 
 ---
 ## conda 环境
@@ -208,3 +209,7 @@ source ~/anaconda3/etc/profile.d/conda.sh
 在使用conda环境的时候可能会出现系统原有的 ``libstdc++.so.6 版本（6.0.28）``不支持所需的` GLIBCXX `符号，导致某些应用程序无法正常运行。需要升级到更高版本（6.0.34）以支持更多的 C++ 标准库特性。
 具体修复请查看[libstdc++.so.6版本升级](libstdc.md)文档
 
+
+---
+[**返回主目录**](/README.md)
+---

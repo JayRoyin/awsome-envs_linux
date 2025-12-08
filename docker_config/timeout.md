@@ -17,9 +17,9 @@ Docker运行hello-world镜像失败或超时，报错：
 
 可以参考[官方文档（阿里云）](https://cr.console.aliyun.com/cn-shenzhen/instances/mirrors)解决步骤
 
+---
 ## 准备：排除安装不到位的问题
 详细的**Docker Engine**安装方法请看[官方文档](https://docs.docker.com/engine/install/ubuntu/#next-steps)，或者可以参考我给出的[安装方法](docker_install.md)（摘录官方文档）。
-
 
 
 ## 第一步：配置加速地址：设置registry mirror
@@ -106,6 +106,21 @@ Registry Mirrors:
 ```
 这里出现了Registy Mirrors。说明通过上面的命令已经配置成功。
 
+如果没有正确输出，请添加用户组并且重启
+将当前用户添加到docker组：
+```bash
+sudo usermod -aG docker $USER
+```
+>或者明确指定用户名
+>```bash
+>sudo usermod -aG docker unitree
+>```
+
+使用`newgrp`命令立即生效（或登出再登录重启）：
+```bash
+newgrp docker
+```
+
 ## 第三步：运行docker run hello-world
 
 ```bash
@@ -123,3 +138,7 @@ docker images
 REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
 hello-world   latest    ca9905c726f0   3 months ago   5.2kB
 ```
+
+---
+[**返回主目录**](/README.md)
+---

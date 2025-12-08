@@ -8,6 +8,7 @@
     - [2. 安装 Docker 软件包。](#2-安装-docker-软件包)
     - [3.运行 `hello-world` 镜像来验证安装是否成功：](#3运行-hello-world-镜像来验证安装是否成功)
   - [卸载 Docker Engine](#卸载-docker-engine)
+  - [**返回主目录**](#返回主目录)
 
 ## 操作系统要求
 要安装 Docker Engine，您需要以下 Ubuntu 版本之一的 64 位版本：
@@ -132,3 +133,7 @@ sudo rm /etc/apt/sources.list.d/docker.sources
 sudo rm /etc/apt/keyrings/docker.asc
 ```
 您必须手动删除所有已编辑的配置文件。
+
+---
+[**返回主目录**](/README.md)
+---

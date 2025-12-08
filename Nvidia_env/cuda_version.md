@@ -10,6 +10,7 @@ CUDA 版本管理
   - [5. 使用示例](#5-使用示例)
   - [6. 添加boot权限（可选）](#6-添加boot权限可选)
   - [7. Jetson平台的CUDA安装（进阶）](#7-jetson平台的cuda安装进阶)
+  - [**返回主目录**](#返回主目录)
 ---
 
 ## 0. cuda版本确认
@@ -268,3 +269,8 @@ export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib64:$LD_LIBRARY_PATH
 
 
 >同时NV给出了[Jetson](https://docs.nvidia.com/cuda/cuda-for-tegra-appnote/index.html#upgradable-package-for-jetson)的详细安装和升级兼容包的方法，也给出[CUDA验证示例的方法](https://github.com/NVIDIA/cuda-samples)
+
+
+---
+[**返回主目录**](/README.md)
+---

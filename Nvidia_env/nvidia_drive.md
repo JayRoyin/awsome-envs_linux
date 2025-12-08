@@ -123,3 +123,8 @@ nvidia-smi
 其中`CUDA Version: 13.0`是显卡所能支持的最高版本。
 ## CUDA安装
 完成后继续[CUDA安装](cuda_version.md)
+
+
+---
+[**返回主目录**](/README.md)
+---

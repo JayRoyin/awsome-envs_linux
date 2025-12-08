@@ -75,3 +75,7 @@ Slam's status monitor finished, start moving!
 
 请确认当前使用的相机与指定的`rgbd_type`参数是否一致，或者是否连接上摄像头
 
+
+---
+[**返回主目录**](/README.md)
+---
