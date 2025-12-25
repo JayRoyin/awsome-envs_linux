@@ -10,7 +10,7 @@ Ubuntu下STM32开发环境搭建指南（从零开始到点亮小灯）
   - [三、详细配置过程](#三详细配置过程)
     - [3.1 安装串口调试助手](#31-安装串口调试助手)
     - [3.2 安装交叉编译器gcc-arm-none-eabi](#32-安装交叉编译器gcc-arm-none-eabi)
-    - [3.3 安装DAP下载工具（pyocd）](#33-安装dap下载工具pyocd)
+    - [3.3 安装下载工具](#33-安装下载工具)
     - [3.4 安装编译工具](#34-安装编译工具)
     - [3.5 安装STM32CubeMX](#35-安装stm32cubemx)
     - [3.6 安装VSCode（可选但推荐）](#36-安装vscode可选但推荐)
@@ -65,7 +65,7 @@ DAP下载器
 
 ### 3.1 安装串口调试助手
 
-我装了两个串口助手，minicom和cutecom，minicom是基于命令行的，而cute是做成图形界面的我在搜minicom的使用教程时偶然看到了cutecom，索性就装了，cutecom使用起来比较简单，跟windows下的串口助手一样。
+下面有俩个推荐的串口调试工具：**minicom**和**cutecom**，**minicom**是基于命令行的，而**cutecom**是图形界面（cutecom使用起来比较简单，跟windows的的串口助手一样）。
 
 **安装minicom（命令行界面）：**
 ```bash
@@ -77,11 +77,11 @@ sudo apt-get install minicom
 ```bash
 sudo minicom -s
 ```
-配置说明：
-- 选择"Serial port setup"
-- 设置串口设备（如：/dev/ttyUSB0或则ttyACM0）
-- 设置波特率（通常为115200或则9600）
-- 保存配置为默认配置
+>配置说明：
+>- 选择"Serial port setup"
+>- 设置串口设备（如：/dev/ttyUSB0或则ttyACM0）
+>- 设置波特率（通常为115200或则9600）
+>- 保存配置为默认配置
 
 **安装cutecom（图形界面）：**
 ```bash
@@ -93,6 +93,9 @@ sudo apt-get install cutecom
 cutecom
 ```
 
+>[\!NOTE]
+>cutecom有桌面图标不用自己配置，而minicom必须用命令启动
+
 ### 3.2 安装交叉编译器gcc-arm-none-eabi
 
 **方法一：自动安装（简单但不一定是最新版）**
@@ -103,55 +106,35 @@ sudo apt-get install gcc-arm-none-eabi
 
 **方法二：手动安装（推荐，可控制版本）**
 
-1. **下载编译器：**
-```bash
-wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2
-```
+可以先去[官网](https://developer.arm.com/downloads/-/gnu-rm)查看适合自己的编译器，这里我选择的是[`gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2`](https://developer.arm.com/-/media/files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2?rev=78196d3461ba4c9089a67b5f33edf82a&revision=78196d34-61ba-4c90-89a6-7b5f33edf82a&hash=B94A380A17942218223CD08320496FB1)
 
-2. **解压到指定目录：**
-```bash
-tar -xjf gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2
-sudo mv gcc-arm-none-eabi-10.3-2021.10 /opt/
-```
+具体手动安装教程可以查看[gcc-arm手动安装教程](/Embedded_Development/STM32/docs/gcc_arm.md)
 
-3. **配置环境变量：**
-```bash
-echo 'export PATH="/opt/gcc-arm-none-eabi-10.3-2021.10/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
-```
+>[\!NOTE]
+>有能力的人在配置环境的时候可以将该切换版本的方法和conda融合在一起使用
 
-4. **验证安装：**
+**验证安装：**
 ```bash
 arm-none-eabi-gcc --version
 ```
-
-### 3.3 安装DAP下载工具（pyocd）
-
-**安装Python3和pip（如果尚未安装）：**
+输出类似于：
 ```bash
-sudo apt-get install python3 python3-pip
+gcc version 10.3.1 20210621 (release) (15:10.3-2021.07-4)
 ```
 
-**安装pyocd：**
-```bash
-pip3 install --user pyocd
-```
+STM32CubeProgrammer
 
-**将pyocd添加到PATH：**
-```bash
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
-```
+### 3.3 安装下载工具
+这里提供三种下载工具的方法DAPLink、STLink和STM32cubeProgrammer，其中STM32cubeProgrammer功能最为强大，但是安装起来也很麻烦需要JAVA环境
 
-**安装CMSIS包（包含STM32F1系列支持）：**
-```bash
-pyocd pack install STM32F1
-```
+- **STM32cubeProgrammer**:
+支持格式：Motorola S19、ELF、bin、hex
 
-**验证pyocd安装：**
-```bash
-pyocd --version
-```
+
+- **DAPLink**：
+  
+
+- **STLink**：
 
 ### 3.4 安装编译工具
 

@@ -343,6 +343,7 @@ idf.py menuconfig
 
 1. 打开AEC实时打断功能
   在`idf.py menuconfig`的界面进入**Xiaozhi Assistant**然后勾选**Enable Server-Side AEC (Unstable)**
+  
   ![](/Embedded_Development/ESP32/img/meanuconfig_4.png)
 
 2. 修改唤醒词
