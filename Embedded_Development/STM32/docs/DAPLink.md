@@ -94,7 +94,7 @@ configure: error: jimtcl is required but not found via pkg-config and system inc
 sudo apt install libjim-dev
 ```
 
->>[\!NOTE]
+>[\!NOTE]
 >由于我调试器是DAP-Link，所以还要运行如下命令进行使能
 >```bash
 >./configure --enable-cmsis-dap --enable-cmsis-dap-v2
@@ -141,6 +141,9 @@ For bug reports, read
 ```bash
 cp openocd-code/tcl/interface/cmsis-dap.cfg /path/to/hex/folder/
 ```
+
+>[\!NOTE]
+>如果你的程序是从keil的ARM_MDK导入过来的话，请在导入之前在keil上打开生成`hex`，不然就要自己去设置`Makefile`，然后去编译生成`hex`
 
 2. 拷贝 STM32F103C8 配置文件：
 ```bash

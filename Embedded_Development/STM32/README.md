@@ -131,10 +131,12 @@ STM32CubeProgrammer
 支持格式：Motorola S19、ELF、bin、hex
 
 
-- **DAPLink**：
+- **DAPLink**：简化了将调试器连接到基于ARM Cortex的目标板上，具体可以到官网查看[CMSIS-DAP](https://developer.arm.com/documentation/101451/0100/About-CMSIS-DAP)
   
 
-- **STLink**：
+- **STLink**：仅适用于ST 芯片，尤其是STM32和STM8。
+  - [ST-LINK](https://www.st.com/en/development-tools/st-link-v2.html)
+  - [ST-LINK/V2](https://www.st.com/en/development-tools/st-link-v2.html)
 
 ### 3.4 安装编译工具
 

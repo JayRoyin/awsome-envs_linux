@@ -74,6 +74,10 @@ EOF
 sudo apt update
 ```
 
+>[!NOTE]
+>如果出现`curl: (35) OpenSSL SSL_connect: Connection reset by peer in connection to download.docker.com:443`
+>可以多次尝试`sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc`
+
 ### 2. 安装 Docker 软件包。
 
 要安装最新版本，请运行：

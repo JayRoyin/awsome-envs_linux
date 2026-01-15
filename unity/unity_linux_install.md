@@ -9,7 +9,7 @@ UnityHub安装相关
   - [Red Hat Enterprise Linux (RHEL) 或 CentOS](#red-hat-enterprise-linux-rhel-或-centos)
 - [Unity 相关问题](#unity-相关问题)
   - [用Unity Hub下载编辑器失败(2022.3.69f1)](#用unity-hub下载编辑器失败2022369f1)
-  - [**返回主目录**](#返回主目录)
+  - [**返回主目录**  **组件安装**](#返回主目录--组件安装)
 
 # 安装UnityHub for Linux
 
@@ -103,13 +103,13 @@ sudo yum remove unityhub
 用Unity Hub下载编辑器出现`下载失败: Validation Failed`的问题，如图所示：
 
 <p align="center">
-  <img width="425" height="171" src="Editor_failed.png" hspace="10">
+  <img width="425" height="171" src="img/Editor_failed.png" hspace="10">
 </p>
 
 我们可以去[官网Unity编辑器](https://unity.com/releases/editor/archive)进行手动下载，进入页面选择需要的编辑器版本，点击**see more**，进入下载页面，这里以[2022.3.69f1](https://unity.com/releases/editor/whats-new/2022.3.69f1#installs)为例,选择自己适合的系统版本进行下载。
 
 <p align="center">
-  <img width="1743" height="466" src="Ubuntu_editor_download.png" hspace="10">
+  <img width="1743" height="466" src="img/Ubuntu_editor_download.png" hspace="10">
 </p>
 
 点击[2022.3.69f1](https://download.unity3d.com/download_unity/621633b9d04b/LinuxEditorInstaller/Unity-2022.3.69f1.tar.xz)可以直接下载，可以去下载目录直接解压出Editor的文件夹，或者在下载目录使用我的指令进行操作
@@ -174,17 +174,17 @@ Unity
 
 进入Unity Hub，定位解压后的文件`Unity/Hub/Editor/2022.3.69f1/Editor/Unity`，定位成功后，可以尝试新建项目，如果有模板显示，则安装成功，如图所示：
 <p align="center">
-  <img width="1200" height="769" src="Unity_project.png" hspace="10">
+  <img width="1200" height="769" src="img/Unity_project.png" hspace="10">
 </p>
 
 如果没有显示模板信息或者说网络问题，则请注意目录是否有问题。
 
 同时可以修改Unity的设置中的安装位置，如下图所示：
 <p align="center">
-  <img width="945" height="465" src="Unity_config.png" hspace="10">
+  <img width="945" height="465" src="img/Unity_config.png" hspace="10">
 </p>
 
 
 ---
-[**返回主目录**](/README.md)
+[**返回主目录**](/README.md)  [**组件安装**]()
 ---
