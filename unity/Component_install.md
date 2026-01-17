@@ -58,6 +58,77 @@ mv WindowsStandaloneSupport /YourPatch/Editor/Data/PlaybackEngines
 
 具体环境要求可以查看[官方文档](https://docs.unity3d.com/2022.3/Documentation/Manual/android-supported-dependency-versions.html)
 
+![](/unity/img/Commponent_Supported_dependency.png)
 
+#### 安装JDK
+如上图，我们需要下载JDK11，进入[官网下载](https://www.oracle.com/java/technologies/downloads/#java11)，这里选择的是`jdk-11.0.29_linux-x64_bin.tar.gz`进行下载。
+
+![](/unity/img/Commponent_JDK.png)
+
+下载后直接解压到相关文件夹。
 
 #### 安装SDK
+安装SDK之前，我们需要Android 应用开发的官方 IDE，所以需要[Android Studio下载](https://developer.android.google.cn/studio?hl=zh-cn)并安装，下载的页面会自动识别自己的系统类型，所以可以直接点击下载。
+
+下载解压完成之后，需要进入到`android-studio/bin`下找到`studio`,打开安装程序，安装过程也非常简单，所以这里就略过了，之后启动也是通过这个应用程序进行启动。
+
+![](/unity/img/Commponent_Studio_1.png)
+
+打开程序后，进入设置，找到**Android**得到如上界面，然后根据编译器版本所需安装适合自己的**SDK**和**Tools**。
+
+>[\!NOTE]
+>可以根据自己的需要，修改和合适的安装路径，建议将Android的相关SDK、NDK都放在同一根目录下，方便管理。
+
+其中我们要注意的是NDK不通过Studio进行安装，我们只需要安装SDK，例如这里使用的是2022.3.62f3，然后选择当前JDK适合的“Android SDK Command-line Tools”版本，我的jdk版本是jdk-11.0.22，所以工具我选了8.0。
+
+![](/unity/img/Commponent_Studio_2.png)
+
+![](/unity/img/Commponent_Studio_3.png)
+
+>[\!NOTE]
+>如果页面显示的东西很少，那么切换到**SDK Tools**面版，先勾选“Show Package Details”，显示出更多信息。
+
+完成上面操作后，记得Apply，然后进行下载和安装（需要足够的空间）。
+
+#### 安装NDK
+由于NDK的安装的特殊性，我提供了一个[开源地址](https://github.com/android/ndk)，可以查看NDK的项目页面。
+
+去[下载页面](https://github.com/android/ndk/wiki/Unsupported-Downloads)找到适合自己的NDK版本，例如我们需要`r23b`，但是提供的页面没有下载，可以直接点击[下载](https://dl.google.com/android/repository/android-ndk-r23b-linux.zip)获取。
+
+
+
+
+
+#### 安装gradle
+
+可以去[官网下载](https://services.gradle.org/distributions/)页面查找对应的版本，比如这里我选择的是`gradle-7.6-bin.zip`，记得解压相关的文件夹内。
+
+![](/unity/img/Commponent_Gradle.png)
+
+也可以通过下面的指令进行下载：
+```bash
+wget https://services.gradle.org/distributions/gradle-7.6-bin.zip
+unzip gradle-7.6-bin.zip
+```
+
+### Unity 内安卓配置
+
+在完成上面组件的安装后，我的组件所在的结构如下：
+```bash
+.
+├── android-ndk-r23b
+├── android-ndk-r23c
+├── gradle-7.2
+├── gradle-7.6
+└── Sdk
+```
+
+>**注意：**
+>由于我的JDK解压到了编辑器文件夹内，所以我的路径设置也有所不同
+
+在Unity里进行配置，配置如下图：
+
+![](/unity/img/Commponent_Android.png)
+
+至此Android的打包环境已经配置完成
+
