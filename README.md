@@ -1,75 +1,171 @@
-💻 环境配置文档导览
-===
------
-欢迎来到我的环境配置文档仓库！本项目旨在记录和整理各种开发环境、工具和库的配置过程、使用指南以及常见问题解决方案。无论您是配置**Docker**环境、**NVIDIA**驱动，还是进行 **C/C++** 编译设置，您都可以在这里找到详尽的步骤和参考资料。
+<div align="center">
 
------
+# 🐧 Awesome Envs Linux
 
-## 🚀 主要内容概览
+**Ubuntu 开发环境配置百科 · 从零到一的完整指南**
 
-本项目主要包含以下几个核心配置主题的文档：
+[![OS](https://img.shields.io/badge/OS-Ubuntu_22.04+-E95420?style=flat-square&logo=ubuntu&logoColor=white)](https://ubuntu.com/)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com)
 
-1.  **Docker 配置**：关于Docker的安装、配置和常见问题解决（如超时问题）。
-2.  **NVIDIA 环境**：CUDA工具包、驱动、Conda环境和标准库的配置。
-3.  **编译器**：GCC/G++编译器的配置和使用。
-4.  **版本控制**：Git的基础使用指南。
-5.  **其他工具/学习**：G1工具的使用说明、学习笔记和测试文件。
+> 记录和整理各种开发环境、工具链和库的配置过程、使用指南以及常见问题解决方案。
+> 无论你是搞嵌入式、深度学习、游戏开发还是日常 Linux 运维，都能在这里找到参考。
 
------
+</div>
 
-## 📜 目录结构和快速导航
+---
 
-以下是本项目的目录结构概览，您可以直接点击**文件路径**跳转到对应的文档页面。
+## 📑 目录
 
-## 📄 文档详细分类
+- [嵌入式开发](#-嵌入式开发)
+- [GPU / 深度学习环境](#-gpu--深度学习环境)
+- [Docker](#-docker)
+- [编译器 & 工具链](#%EF%B8%8F-编译器--工具链)
+- [版本控制](#-版本控制)
+- [游戏引擎](#-游戏引擎)
+- [网络工具](#-网络工具)
+- [机器人 & SDK](#-机器人--sdk)
+- [项目结构](#-项目结构)
 
-### 🐳 Docker 配置与故障排除
+---
 
-| 文档名称 | 路径 | 描述 |
-| :--- | :--- | :--- |
-| **Docker 安装指南** | [`docker_config/docker_install.md`](docker_config/docker_install.md) | Docker的安装步骤和基本配置。 |
-| **Docker 超时解决方案** | [`docker_config/timeout.md`](docker_config/timeout.md) | 解决Docker在使用过程中可能遇到的网络或操作超时问题。 |
+## 🔌 嵌入式开发
 
+<table>
+<tr><td colspan="2"><b>ESP32 系列</b> — 基于 ESP-IDF 5.5 的开发环境搭建 & 小智 AI 项目实战</td></tr>
+<tr>
+  <td>📖 <a href="Embedded_Development/ESP32/README.md">ESP32 开发环境搭建（主文档）</a></td>
+  <td>ESP-IDF 安装、环境变量、HelloWorld、小智 AI 工程全流程</td>
+</tr>
+<tr>
+  <td>📄 <a href="Embedded_Development/ESP32/docs/port_permission.md">串口权限问题</a></td>
+  <td>Permission denied 排查与修复</td>
+</tr>
+<tr>
+  <td>📄 <a href="Embedded_Development/ESP32/docs/FAQ.md">常见问题 FAQ</a></td>
+  <td>串口连接、编译报错等故障排除</td>
+</tr>
+</table>
 
-### 🛠️ NVIDIA 环境配置
+<table>
+<tr><td colspan="2"><b>STM32 系列</b> — Ubuntu 下从零搭建 STM32 开发环境到点亮 LED</td></tr>
+<tr>
+  <td>📖 <a href="Embedded_Development/STM32/README.md">STM32 开发环境搭建（主文档）</a></td>
+  <td>gcc-arm + pyocd + STM32CubeMX 完整流程</td>
+</tr>
+<tr>
+  <td>📄 <a href="Embedded_Development/STM32/docs/gcc_arm.md">ARM GCC 工具链手动安装</a></td>
+  <td>GNU Arm Embedded Toolchain 安装与版本管理</td>
+</tr>
+<tr>
+  <td>📄 <a href="Embedded_Development/STM32/docs/DAPLink.md">DAPLink (OpenOCD) 烧录指南</a></td>
+  <td>OpenOCD 编译安装 + DAPLink 烧录配置</td>
+</tr>
+<tr>
+  <td>📄 <a href="Embedded_Development/STM32/docs/STLink.md">STLink 烧录指南</a></td>
+  <td>stlink-tools 安装与使用</td>
+</tr>
+<tr>
+  <td>📄 <a href="Embedded_Development/STM32/docs/STM32CubeProg_install.md">STM32CubeProgrammer 安装</a></td>
+  <td>STM32CubeProg Linux 版安装步骤</td>
+</tr>
+</table>
 
-| 文档名称 | 路径 | 描述 |
-| :--- | :--- | :--- |
-| **Conda 环境配置** | [`Nvidia_env/conda_config.md`](Nvidia_env/conda_config.md) | Conda虚拟环境的创建、管理和配置说明。 |
-| **CUDA 版本信息** | [`Nvidia_env/cuda_version.md`](Nvidia_env/cuda_version.md) | 检查和安装CUDA工具包的版本信息及步骤。 |
-| **NVIDIA 驱动安装** | [`Nvidia_env/nvidia_drive.md`](Nvidia_env/nvidia_drive.md) | NVIDIA显卡驱动的安装、更新和配置指南。 |
-| **C++ 标准库配置** | [`Nvidia_env/libstdc.md`](Nvidia_env/libstdc.md) | 解决C++标准库（如`libstdc++.so.6`）在不同环境中的兼容和配置问题。 |
+---
 
+## 🎮 GPU / 深度学习环境
 
-### ⚙️ 编译器和版本控制
+| 文档 | 说明 |
+|:-----|:-----|
+| 🟢 [NVIDIA 驱动安装](Nvidia_env/nvidia_drive.md) | Ubuntu 22.04–24.04 显卡驱动安装与切换 |
+| 🟢 [CUDA 版本管理](Nvidia_env/cuda_version.md) | CUDA Toolkit 安装、多版本共存与切换 |
+| 🟢 [Conda 环境配置](Nvidia_env/conda_config.md) | Anaconda / Miniconda 安装、虚拟环境管理 |
+| 🟢 [libstdc++ 兼容修复](Nvidia_env/libstdc.md) | `libstdc++.so.6` 版本升级与符号链接修复 |
 
-| 文档名称 | 路径 | 描述 |
-| :--- | :--- | :--- |
-| **G++ 编译器配置** | [`gcc/g++.md`](gcc/g++.md) | GCC工具链中G++编译器的安装、环境变量设置和使用示例。 |
-| **Git 基础使用** | [`git_usage/git.md`](git_usage/git.md) | Git版本控制的基本操作，包括提交、分支、合并等。 |
+---
 
-### ⚙️ Unity相关
+## 🐳 Docker
 
-| 文档名称 | 路径 | 描述 |
-| :--- | :--- | :--- |
-| **Unity相关** | [`unity/unity_linux_install.md`](unity/unity_linux_install.md) | Unity在ubuntu中安装以及使用会遇到的问题合集 |
+| 文档 | 说明 |
+|:-----|:-----|
+| 📦 [Docker 安装指南](docker_config/docker_install.md) | Ubuntu 上通过 apt 安装 Docker Engine |
+| 📦 [Docker 超时问题排查](docker_config/timeout.md) | `hello-world` 镜像拉取失败 / 超时的解决方案 |
 
+---
 
-### 📚 使用指南和学习资料
+## ⚙️ 编译器 & 工具链
 
-| 文档名称 | 路径 | 描述 |
-| :--- | :--- | :--- |
-| **G1 导览机器人使用说明** | [`G1_tour/usage.md`](G1_tour/usage.md) | G1工具的具体操作流程和功能介绍。 |
-| **配置示例与学习笔记** | [`study/示例.md`](study/示例.md) | 各种配置的实际示例、操作记录和学习心得。 |
+| 文档 | 说明 |
+|:-----|:-----|
+| 🔧 [GCC / G++ 版本切换](gcc/g++.md) | `update-alternatives` 多版本管理 |
 
------
+---
 
-## 💡 如何使用
+## 🌿 版本控制
 
-1.  **浏览目录**：通过上方的**目录结构和快速导航**或**文档详细分类**表格，快速定位您感兴趣的主题。
-2.  **点击跳转**：点击相应的**文件链接**（`.md`文件）即可跳转到GitHub上该文件的详细内容页面。
-3.  **获取信息**：文档内包含了详细的步骤、代码示例和截图，指导您完成环境配置或解决问题。
+| 文档 | 说明 |
+|:-----|:-----|
+| 📝 [Git 基础使用指南](git_usage/git.md) | 从本地仓库到 GitHub 远程推送的完整流程 |
 
-感谢您的访问！希望这些文档能为您的工作和学习带来便利。
+---
 
------
+## 🎮 游戏引擎
+
+| 文档 | 说明 |
+|:-----|:-----|
+| 🕹️ [Unity Hub Linux 安装](unity/unity_linux_install.md) | UnityHub 安装、编辑器下载与常见问题 |
+| 🕹️ [Unity 组件手动安装](unity/Component_install.md) | Android Build Support、JDK、Gradle 等组件安装 |
+
+---
+
+## 🌐 网络工具
+
+| 文档 | 说明 |
+|:-----|:-----|
+| 🛡️ [Clash 自定义规则配置](docs/Spec/clash.md) | 订阅更新不覆盖自定义分流规则的方法 |
+
+---
+
+## 🤖 机器人 & SDK
+
+| 文档 | 说明 |
+|:-----|:-----|
+| 🦾 [G1 导览机器人启动指南](G1_tour/usage.md) | 脚本一键启动、远程开发流程 |
+| 🦾 [Unitree SDK 示例运行](study/示例.md) | G1 高层运动控制 SDK 编译与运行 |
+
+---
+
+## 🗂 项目结构
+
+```
+awsome-envs_linux/
+├── README.md                          # ← 你在这里
+├── Embedded_Development/              # 嵌入式开发
+│   ├── ESP32/                         #   ├── ESP-IDF & 小智 AI
+│   │   ├── README.md
+│   │   ├── docs/                      #   │   FAQ、串口权限
+│   │   └── img/
+│   └── STM32/                         #   └── ARM GCC & pyocd
+│       ├── README.md
+│       ├── docs/                      #       gcc_arm、DAPLink、STLink、CubeProg
+│       └── img/
+├── Nvidia_env/                        # GPU 环境：驱动、CUDA、Conda、libstdc++
+├── docker_config/                     # Docker 安装 & 超时排查
+├── gcc/                               # GCC/G++ 版本切换
+├── git_usage/                         # Git 使用指南
+├── unity/                             # Unity Hub & 组件安装
+├── docs/Spec/                         # 网络工具（Clash 规则）
+├── G1_tour/                           # G1 导览机器人
+├── study/                             # SDK 示例 & 学习笔记
+└── test/                              # C/C++ 测试代码
+```
+
+---
+
+<div align="center">
+
+如果这些文档对你有帮助，欢迎 ⭐ Star 支持一下！
+
+有问题或补充？欢迎提 [Issue](../../issues) 或 [Pull Request](../../pulls)。
+
+</div>
