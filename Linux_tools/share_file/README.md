@@ -53,8 +53,8 @@ directory mask = 0777
 > [!TIP]  
 > 1. `smb.conf` 不能有中文
 > 2. 测试配置是否正确 
-> ```bash 
-> testparm
+>   ```bash 
+>   testparm
 >   ```
 >   只要没有报 Error，就是正常的。
 
@@ -73,7 +73,7 @@ sudo ufw reload
 sudo smbpasswd -a user
 ```
 - 输入两次密码（可以和系统密码一致，也可以单独设）
-- 后续 Windows/Linux 访问时，用户名填 qstdc，密码填这里设置的
+- 后续 Windows/Linux 访问时，用户名填 user，密码填这里设置的
 
 ## 5. 查看本机 IP（其他电脑要用到）
 ```bash
@@ -96,8 +96,10 @@ smb://192.168.1.105/user_share
 smb://192.168.1.105/user_share
 ```
 
+---
+
 # FAQ
-## 1.Windows出现 `错误代码 0x80004005`
+## Q1.Windows出现 `错误代码 0x80004005`
 **方法一：** 修改 Windows 组策略（专业版 / 企业版）
 按 **Win + R**，输入 `gpedit.msc` 并回车。
 左侧依次展开：计算机配置 -> 管理模板 -> 网络 -> Lanman 工作站。
@@ -114,33 +116,38 @@ HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameter
 在右侧空白处右键，新建一个 `DWORD (32 位)` 值，命名为 `AllowInsecureGuestAuth`。
 双击它，将数值数据改为 `1`，点击确定。 
 
+**方法三：** 清除 Windows 旧凭据（解决「密码错误 / 权限不足」）
+**Windows** 会缓存旧的登录凭据，导致新配置不生效：
+打开 **控制面板 → 用户账户 → 凭据管理器 → Windows 凭据**
+找到所有包含 `192.168.2.***` 或 `user_share` 的凭据，全部删除
+重启电脑，重新访问共享时，手动输入用户名密码：  
+- **用户名：** `user`
+- **密码：** `smbpasswd` 设置的密码
 
-## 2.
-其他 Linux 端：解决「权限不足 / 无法访问」
-1. 访问方式（用账号密码登录）
 
-    图形化：文件管理器 → 其他位置 → 地址栏输入 smb://192.168.2.109/qstdc_share
-        用户名：qstdc
-        密码：smbpasswd 设置的密码
-    命令行挂载（永久访问）：
-    bash
-    运行
+## Q2.其他 Linux 端：解决「权限不足 / 无法访问」
+**1.** 访问方式（用账号密码登录）
+**图形化：** 文件管理器 → 其他位置 → 地址栏输入 `smb://192.168.2.***/user_share`
+- **用户名：** `user`
+- **密码：** `smbpasswd` 设置的密码
 
+命令行挂载（永久访问）：
+```bash
     # 1. 安装客户端
     sudo apt install cifs-utils -y
     # 2. 创建挂载目录
-    sudo mkdir -p /mnt/qstdc_share
+    sudo mkdir -p /mnt/user_share
     # 3. 挂载共享（替换密码为你的smbpasswd密码）
-    sudo mount -t cifs //192.168.2.109/qstdc_share /mnt/qstdc_share -o username=qstdc,password=你的密码,uid=$(id -u),gid=$(id -g)
+    sudo mount -t cifs //192.168.2.***/user_share /mnt/user_share -o username=user,password=你的密码,uid=$(id -u),gid=$(id -g)
     # 4. 访问目录
-    ls /mnt/qstdc_share
+    ls /mnt/user_share
+```
 
-2. 若仍权限不足，排查 Linux 客户端
-bash
-运行
-
+**2.** 若仍权限不足，排查 Linux 客户端
+```bash
 # 1. 测试连通性
-ping 192.168.2.109
+ping 192.168.2.***
 # 2. 测试Samba连接
-smbclient //192.168.2.109/qstdc_share -U qstdc
+smbclient //192.168.2.***/user_share -U user
 # 输入密码，若进入smb: \> 提示符，说明配置正常
+```
