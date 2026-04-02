@@ -96,6 +96,92 @@ smb://192.168.1.105/user_share
 smb://192.168.1.105/user_share
 ```
 
+## 7.SMB永久挂载
+
+### Ubuntu 设置方法
+
+> [!IMPORTANT]
+> 在链嗯外一台Linux电脑上安装客户端工具
+> **Debian/Ubuntu:**
+> ```bash
+> sudo apt update && sudo apt install smbclient cifs-utils -y
+> ```
+> **RHEL/CentOS/Rocky:**
+> ```bash
+> sudo dnf install samba-client cifs-utils -y
+> ```
+
+先创建一个本地挂载目录（**另外一台Linux电脑**）
+```bash
+sudo mkdir -p /mnt/user_share
+```
+
+创建一个存密码的文件（更安全，不暴露密码）
+```bash
+sudo nano /etc/smbcredentials
+```
+
+把下面内容粘贴进去（**把密码改成你自己的**）：
+```
+username=user
+password=你的共享密码
+```
+按 **Ctrl+O → 回车 → Ctrl+X** 保存退出。
+
+然后设置权限：
+```bash
+sudo chmod 600 /etc/smbcredentials
+```
+
+打开开机自动挂载配置文件
+```bash
+sudo nano /etc/fstab
+```
+
+在**文件最后一行**添加：
+```
+//192.168.2.***/user_share  /mnt/user_share  cifs  credentials=/etc/smbcredentials,vers=3.0,iocharset=utf8,file_mode=0777,dir_mode=0777  0  0
+```
+
+> [!NOTE]
+> **列出目标主机所有共享**
+> ```bash
+> # 基本列出（匿名/访客）
+> smbclient -L //192.168.1.100
+> 
+> # 指定用户名（常用）
+> smbclient -L //192.168.1.100 -U your_username
+> 
+> # 直接带密码（避免交互）
+> smbclient -L //192.168.1.100 -U 'your_username%your_password'
+> ```
+> **交互式进入共享（浏览 / 上传 / 下载）**
+> ```bash
+> smbclient //192.168.1.100/ShareName -U your_username
+> ```
+> 进入后常用命令：
+> 
+>     ls：列出文件
+>     cd 目录：进入目录
+>     get 远程文件：下载到本地
+>     put 本地文件：上传到共享
+>     exit：退出
+
+
+测试挂载（不报错就是成功）
+```bash
+sudo mount -a
+```
+查看是否成功
+```bash
+ls /mnt/user_share
+```
+
+> [!TIP]
+> - 路径固定在 `/mnt/user_share`
+> - 可以像本地文件夹一样读写
+> - 密码安全存在系统里，不会泄露
+
 ---
 
 # FAQ
