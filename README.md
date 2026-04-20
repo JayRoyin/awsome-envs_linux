@@ -126,8 +126,15 @@
 | 文档 | 说明 |
 |:-----|:-----|
 | 🛡️ [Clash 自定义规则配置](docs/Spec/clash.md) | 订阅更新不覆盖自定义分流规则的方法 |
-├── Linux_sys/                          # Linux 系统问题排查（如 WiFi 连接）
+
+---
+
+## 🛠️ Linux 系统
+
+| 文档 | 说明 |
+|:-----|:-----|
 | 📶 [Unitree 机器人 WiFi 连接问题解决](Linux_sys/Unitree_WiFi_问题解决文档.md) | RF-kill 软锁定、NetworkManager 配置问题排查与解决 |
+| 🕒 [系统时间同步与证书报错修复](Linux_sys/系统时间同步与证书报错修复.md) | `systemd-timesyncd` 解屏蔽、手动校时、NTP 同步与硬件时钟写入 |
 
 ---
 
