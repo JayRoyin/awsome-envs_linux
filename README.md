@@ -26,6 +26,7 @@
   - [🌿 版本控制](#-版本控制)
   - [🎮 游戏引擎](#-游戏引擎)
   - [🌐 网络工具](#-网络工具)
+  - [🛠️ Linux 系统](#-linux-系统)
   - [🤖 机器人 \& SDK](#-机器人--sdk)
   - [🗂 项目结构](#-项目结构)
 
@@ -134,6 +135,7 @@
 | 文档 | 说明 |
 |:-----|:-----|
 | 📶 [Unitree 机器人 WiFi 连接问题解决](Linux_sys/Unitree_WiFi_问题解决文档.md) | RF-kill 软锁定、NetworkManager 配置问题排查与解决 |
+| 📦 [Node.js 安装与 NVM 管理](Linux_sys/Node_install.md) | Node.js / npm 安装、NVM 推荐方案、多版本切换与冲突处理 |
 | 🕒 [系统时间同步与证书报错修复](Linux_sys/系统时间同步与证书报错修复.md) | `systemd-timesyncd` 解屏蔽、手动校时、NTP 同步与硬件时钟写入 |
 
 ---
